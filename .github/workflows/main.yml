@@ -14,14 +14,9 @@ jobs:
     - name: Listing files...
       run: ls -al
     - name: Building...
-      run: ./build.sh macos
-    - name: Packing artifact...
-      run: |
-        mkdir -p ${{ github.workspace }}/artifact
-        cp -r data ${{ github.workspace }}/artifact/
-        cp lite ${{ github.workspace }}/artifact/
+      run: ./build_release_macos.sh
     - name: Uploading artifact...
       uses: actions/upload-artifact@v2
       with:
-        name: lite_macos
-        path: artifact
+        name: lite_macos.zip
+        path: lite_macos.zip
